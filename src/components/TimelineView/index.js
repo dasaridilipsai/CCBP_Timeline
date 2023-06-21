@@ -1,7 +1,7 @@
 // Write your code here
 import {Chrono} from 'react-chrono'
 
-import ProjectTimeLineCard from '../ProjectTimelineCard'
+import ProjectTimelineCard from '../ProjectTimelineCard'
 import CourseTimelineCard from '../CourseTimelineCard'
 
 import {
@@ -13,11 +13,11 @@ import {
 } from './styledComponents'
 
 const TimelineView = props => {
-  const {timelineItemList} = props
+  const {timelineItemsList} = props
 
   const renderTimelineCard = item => {
     if (item.categoryId === 'PROJECT') {
-      return <ProjectTimeLineCard key={item.id} projectDetails={item} />
+      return <ProjectTimelineCard key={item.id} projectDetails={item} />
     }
     return <CourseTimelineCard key={item.id} courseDetails={item} />
   }
@@ -33,7 +33,7 @@ const TimelineView = props => {
         </HeaderContainer>
         <Chrono
           theme={{secondary: 'white'}}
-          items={timelineItemList}
+          items={timelineItemsList}
           mode="VERTICAL_ALTERNATING"
         >
           {timelineItemList.map(eachItem => renderTimelineCard(eachItem))}
